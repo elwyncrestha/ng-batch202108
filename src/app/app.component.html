@@ -1,12 +1,2 @@
-<h1 *ngIf="isTitleVisibile">App title: {{ title }}</h1>
-<h1 [hidden]="!isTitleVisibile" [innerText]="'App title: ' + title"></h1>
-
-<button (click)="setTitle('Changed title')">Click</button>
-
-<div *ngIf="isTitleVisibile">
-  <div *ngFor="let a of dummyArray">
-    Hello <span *ngIf="1 < 2"> I am a user {{ a }}.</span>
-  </div>
-</div>
-
-
+<app-nav [navTitle]="title"></app-nav>
+<router-outlet></router-outlet>

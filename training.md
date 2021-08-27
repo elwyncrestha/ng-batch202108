@@ -65,6 +65,7 @@ Angular - What is Angular?
 
 ## Day 3
 
+* Adding 3rd party dependency
 * Angular Module
 * Angular Routing Module
 * Nesting Components
