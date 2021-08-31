@@ -11,4 +11,8 @@ export class AppComponent {
   constructor() {
 
   }
+
+  handleNavClicked(nav: string) {
+    console.log(nav);
+  }
 }

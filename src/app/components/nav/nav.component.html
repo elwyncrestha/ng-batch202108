@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a (click)="handleHomeLinkClick()" class="navbar-brand">{{ navTitle || 'Default Title' }}</a>
+    <a (click)="navClick('/home')" class="navbar-brand">{{ navTitle || 'Default Title' }}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" routerLink="/inventory/add">Add Inventory</a>
+          <a (click)="navClick('/inventory/add')" class="nav-link" aria-current="page">Add Inventory</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/inventory/view">View Inventory</a>
+          <a (click)="navClick('/inventory/view')" class="nav-link">View Inventory</a>
         </li>
       </ul>
     </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   @Input() navTitle: string;
+  @Output() navClicked: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private readonly router: Router) {
   }
@@ -15,8 +16,9 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleHomeLinkClick(): void {
-    this.router.navigate(['/home']);
+  navClick(url: string): void {
+    this.navClicked.emit(url);
+    this.router.navigate([url]);
   }
 
 }

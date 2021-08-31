@@ -1,2 +1,2 @@
-<app-nav [navTitle]="title"></app-nav>
+<app-nav [navTitle]="title" (navClicked)="handleNavClicked($event)"></app-nav>
 <router-outlet></router-outlet>
