@@ -75,6 +75,8 @@ Angular - What is Angular?
 
 ## Day 4
 
+* Redirecting routes
+* Lazy-loaded modules
 * Nesting components
   * Child-parent communication using @Output decorator
 * Angular Service and Dependency Injection
