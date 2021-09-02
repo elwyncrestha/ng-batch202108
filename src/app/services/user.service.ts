@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class UserService {
-
-  constructor() {
-    console.log('UserService init...........');
-  }
+  constructor() {}
 }

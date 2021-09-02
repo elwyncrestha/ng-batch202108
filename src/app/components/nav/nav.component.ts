@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { HEADER_NAVS } from './navs.constant';
 
 @Component({
   selector: 'app-nav',
@@ -10,6 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 export class NavComponent implements OnInit {
   @Input() navTitle: string;
   @Output() navClicked: EventEmitter<string> = new EventEmitter<string>();
+
+  navs = HEADER_NAVS;
 
   constructor(
     private readonly router: Router,

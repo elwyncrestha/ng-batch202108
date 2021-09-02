@@ -83,12 +83,16 @@ Angular - What is Angular?
 
 ---
 
-## Day 5
+## Day 5 | 6
 
 * HttpClientModule
 * Subscription
-* Observable 
+* Observable
 * Pipes (Async pipes)
+
+---
+
+## Day 7
 
 * Ng-container
 * Ng-template

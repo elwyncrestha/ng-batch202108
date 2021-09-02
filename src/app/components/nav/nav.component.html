@@ -6,11 +6,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a (click)="navClick('/inventory/add')" class="nav-link" aria-current="page">Add Inventory</a>
-        </li>
-        <li class="nav-item">
-          <a (click)="navClick('/inventory/view')" class="nav-link">View Inventory</a>
+        <li *ngFor="let nav of navs" class="nav-item">
+          <a (click)="navClick(nav.url)" class="nav-link">{{ nav.label }}</a>
         </li>
       </ul>
     </div>

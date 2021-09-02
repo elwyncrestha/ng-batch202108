@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/inventory/inventory.module').then((m) => m.InventoryModule)
   },
   {
+    path: 'pokemon',
+    loadChildren: () => import('./modules/pokemon/pokemon.module').then((m) => m.PokemonModule)
+  },
+  {
     path: 'home',
     component: HomeComponent
   },
