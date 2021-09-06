@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { HEADER_NAVS } from './navs.constant';
 
@@ -13,6 +15,8 @@ export class NavComponent implements OnInit {
   @Output() navClicked: EventEmitter<string> = new EventEmitter<string>();
 
   navs = HEADER_NAVS;
+  user$: Observable<User>;
+
 
   constructor(
     private readonly router: Router,
@@ -21,6 +25,8 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user$ = this.userService.authenticatedUser.asObservable();
+    this.user$.subscribe((v) => console.log(v));
   }
 
   navClick(url: string): void {

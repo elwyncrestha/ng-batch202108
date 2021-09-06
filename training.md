@@ -86,7 +86,6 @@ Angular - What is Angular?
 ## Day 5 | 6
 
 * HttpClientModule
-* Subscription
 * Observable
 * Pipes (Async pipes)
 
@@ -94,9 +93,16 @@ Angular - What is Angular?
 
 ## Day 7
 
+* Subject, Behavioral Subject, Observable and Subscription
+
+## Day 8
+
+* Template-driven form: FormsModule
+* Reactive form: ReactiveFormsModule
+
+## Day 9 | 10
+
 * Ng-container
 * Ng-template
 * Ng-content
-
-* Template -driven form
-* Reactive form
+* NgRx
