@@ -1,1 +1,26 @@
-<p>view-inventories works!</p>
+<div class="card">
+  <div class="card-header">View Inventories</div>
+  <div class="card-body">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Inventory Name</th>
+          <th scope="col">Inventory Quantity</th>
+          <th scope="col">Created At</th>
+          <th scope="col">Last Modified At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let inventory of inventories$ | async; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ inventory.name }}</td>
+          <td>{{ inventory.quantity }}</td>
+          <td>{{ inventory.createdAt | date }}</td>
+          <td>{{ inventory.lastModifiedAt | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

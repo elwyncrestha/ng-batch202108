@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  pokemon_server_v2: 'https://pokeapi.co/api/v2'
+  pokemon_server_v2: 'https://pokeapi.co/api/v2',
+  inventory_server: 'http://localhost:8080/v1'
 };
 
 /*

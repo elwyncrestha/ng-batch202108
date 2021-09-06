@@ -1,1 +1,31 @@
-<p>add-inventory works!</p>
+<form (ngSubmit)="formSubmit()" [formGroup]="form">
+  <div class="card">
+    <div class="card-header">Add Inventory</div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter inventory name"
+          formControlName="name"
+        />
+        <small *ngIf="form.get('name').touched && form.get('name').invalid && form.get('name').hasError('required')" class="form-text text-danger">Name is required!</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Quantity</label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Enter quantity"
+          formControlName="quantity"
+        />
+        <small *ngIf="form.get('quantity').touched && form.get('quantity').invalid && form.get('quantity').hasError('required')" class="form-text text-danger">Quantity is required!</small>
+        <small *ngIf="form.get('quantity').touched && form.get('quantity').invalid && form.get('quantity').hasError('min')" class="form-text text-danger">Minimum quantity should be at least 0.</small>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>

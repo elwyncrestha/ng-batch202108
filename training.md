@@ -99,6 +99,10 @@ Angular - What is Angular?
 
 * Template-driven form: FormsModule
 * Reactive form: ReactiveFormsModule
+  * AbstractControl
+  * FormGroup
+  * FormControl
+  * FormArray
 
 ## Day 9 | 10
 
