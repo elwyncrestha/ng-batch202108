@@ -1,9 +1,40 @@
-<div>
-  <ng-container [ngComponentOutlet]="header"></ng-container>
-</div>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Susbcribe to our newsletter</h5>
+    <p class="card-text">
+      Subscribe to our newsletter by providing your email address.
+    </p>
 
-<ng-template #header>
-  <div>
-    container works!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    <form (ngSubmit)="subscriptionFormSubmit(subscriptionForm)" #subscriptionForm="ngForm">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter email"
+          [(ngModel)]="subscriptionFormEmail"
+          #email="ngModel"
+          name="email"
+          required
+        />
+        <small *ngIf="email.touched && email.invalid" id="emailHelp" class="form-text text-danger">Email is required!</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Secondary Email</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter alternate email"
+          [(ngModel)]="subscriptionFormAlternateEmail"
+          #alternateEmail="ngModel"
+          name="alternateEmail"
+          required
+        />
+        <small *ngIf="alternateEmail.touched && alternateEmail.invalid" id="emailHelp" class="form-text text-danger">Alternate Email is required!</small
+        >
+      </div>
+      <button [disabled]="subscriptionForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
-</ng-template>
+</div>

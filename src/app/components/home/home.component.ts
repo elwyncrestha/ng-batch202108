@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  subscriptionFormEmail: string = '';
+  subscriptionFormAlternateEmail: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  subscriptionFormSubmit(form): void {
+    console.log(form.value);
   }
 
 }
