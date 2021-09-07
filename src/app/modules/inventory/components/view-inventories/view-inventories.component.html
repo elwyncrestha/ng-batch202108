@@ -10,16 +10,28 @@
           <th scope="col">Inventory Quantity</th>
           <th scope="col">Created At</th>
           <th scope="col">Last Modified At</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let inventory of inventories$ | async; let i = index">
-          <th scope="row">{{ i + 1 }}</th>
-          <td>{{ inventory.name }}</td>
-          <td>{{ inventory.quantity }}</td>
-          <td>{{ inventory.createdAt | date }}</td>
-          <td>{{ inventory.lastModifiedAt | date }}</td>
-        </tr>
+        <ng-container *ngIf="(inventories$ | async) as inventories">
+          <tr *ngIf="!inventories || inventories?.length < 1">
+            <td colspan="6">No data found</td>
+          </tr>
+          <ng-container *ngIf="inventories?.length > 0">
+            <tr *ngFor="let inventory of inventories; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ inventory.name }}</td>
+              <td>{{ inventory.quantity }}</td>
+              <td>{{ inventory.createdAt | date }}</td>
+              <td>{{ inventory.lastModifiedAt | date }}</td>
+              <td>
+                <button (click)="update(inventory.id)" class="btn btn-info">Update</button>
+                <button (click)="deleteInventory(inventory.id)" class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          </ng-container>
+        </ng-container>
       </tbody>
     </table>
   </div>

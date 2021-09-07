@@ -104,9 +104,13 @@ Angular - What is Angular?
   * FormControl
   * FormArray
 
-## Day 9 | 10
+## Day 9
 
 * Ng-container
 * Ng-template
 * Ng-content
-* NgRx
+* State Management with NgRx Intro
+
+## Day 10
+
+* NgRx application

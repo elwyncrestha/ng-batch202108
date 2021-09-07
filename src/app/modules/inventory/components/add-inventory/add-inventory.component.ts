@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { Inventory } from '../../models/inventory.model';
 import { InventoryService } from '../../services/inventory.service';
@@ -15,14 +15,17 @@ export class AddInventoryComponent implements OnInit {
 
   constructor(
     private readonly service: InventoryService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
+      id: new FormControl(''),
       name: new FormControl('', [Validators.required]),
       quantity: new FormControl(0, [Validators.required, Validators.min(0)]),
     });
+    this.preFillForm();
   }
 
   formSubmit(): void {
@@ -35,5 +38,12 @@ export class AddInventoryComponent implements OnInit {
         },
         (error) => console.error(error)
       );
+  }
+
+  private preFillForm(): void {
+    const { id } = this.activatedRoute.snapshot.queryParams;
+    this.service.getOne(id).pipe((take(1))).subscribe((inventory) => {
+      this.form.patchValue(inventory);
+    });
   }
 }
