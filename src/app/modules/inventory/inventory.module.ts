@@ -8,6 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { FeatureIdConstant } from 'src/app/store/store.constant';
 import { getInventoryReducers, inventoryReducerToken } from './store/inventory.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { InventoryEffect } from './store/inventory.effect';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { getInventoryReducers, inventoryReducerToken } from './store/inventory.r
     CommonModule,
     InventoryRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forFeature(FeatureIdConstant.INVENTORY, inventoryReducerToken)
+    StoreModule.forFeature(FeatureIdConstant.INVENTORY, inventoryReducerToken),
+    EffectsModule.forFeature([InventoryEffect])
   ],
   providers: [
     {

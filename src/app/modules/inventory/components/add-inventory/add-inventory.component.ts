@@ -42,6 +42,9 @@ export class AddInventoryComponent implements OnInit {
 
   private preFillForm(): void {
     const { id } = this.activatedRoute.snapshot.queryParams;
+    if (!id) {
+      return;
+    }
     this.service.getOne(id).pipe((take(1))).subscribe((inventory) => {
       this.form.patchValue(inventory);
     });
