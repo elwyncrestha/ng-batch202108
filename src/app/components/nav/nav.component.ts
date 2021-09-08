@@ -1,8 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/models/user.model';
-import { UserService } from 'src/app/services/user.service';
+import { UserConstant } from 'src/app/constants/user.constant';
+import { AppState } from 'src/app/store/app.reducer';
+import { UserAction } from 'src/app/store/user/user.action';
+import { User } from 'src/app/store/user/user.reducer';
+import { selectUser } from 'src/app/store/user/user.selector';
 import { HEADER_NAVS } from './navs.constant';
 
 @Component({
@@ -20,18 +24,24 @@ export class NavComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
-    private readonly userService: UserService
+    private readonly store: Store<AppState>
     ) {
   }
 
   ngOnInit(): void {
-    this.user$ = this.userService.authenticatedUser.asObservable();
-    this.user$.subscribe((v) => console.log(v));
+    this.user$ = this.store.select(selectUser);
   }
 
   navClick(url: string): void {
     this.navClicked.emit(url);
     this.router.navigate([url]);
+  }
+
+  toggleUser(): void {
+    let user: User;
+    this.store.select(selectUser).subscribe((v) => user = v).unsubscribe();
+    const newUser: User = user.id === UserConstant.JOHN_DOE.id ? UserConstant.JANE_DOE : UserConstant.JOHN_DOE;
+    this.store.dispatch(UserAction.setUser({ user: newUser }));
   }
 
 }
