@@ -103,6 +103,7 @@ Angular - What is Angular?
   * FormGroup
   * FormControl
   * FormArray
+  * FormBuilder
 
 ## Day 9
 

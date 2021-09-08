@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { InventoryService } from '../../services/inventory.service';
@@ -16,14 +16,15 @@ export class AddInventoryComponent implements OnInit {
   constructor(
     private readonly service: InventoryService,
     private readonly router: Router,
-    private readonly activatedRoute: ActivatedRoute
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      id: new FormControl(''),
-      name: new FormControl('', [Validators.required]),
-      quantity: new FormControl(0, [Validators.required, Validators.min(0)]),
+    this.form = this.formBuilder.group({
+      id: [''],
+      name: ['', Validators.required],
+      quantity: [0, [Validators.required, Validators.min(0)]]
     });
     this.preFillForm();
   }

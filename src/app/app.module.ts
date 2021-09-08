@@ -32,7 +32,7 @@ import { EffectsModule } from '@ngrx/effects';
     {
       provide: appReducerToken,
       useFactory: getAppReducers
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })
