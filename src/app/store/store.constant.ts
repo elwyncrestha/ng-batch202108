@@ -1,3 +1,8 @@
 export const REDUCER_TOKEN = {
-  appReducer: 'appReducer'
+  appReducer: 'appReducer',
+  inventoryReducer: 'inventoryReducer',
 };
+
+export class FeatureIdConstant {
+  static INVENTORY = 'inventory';
+}

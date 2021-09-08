@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
-import { Inventory } from '../../models/inventory.model';
 import { InventoryService } from '../../services/inventory.service';
+import { Inventory } from '../../store/inventory.reducer';
 
 @Component({
   selector: 'app-add-inventory',

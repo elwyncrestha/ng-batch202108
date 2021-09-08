@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Inventory } from '../models/inventory.model';
+import { Inventory } from '../store/inventory.reducer';
 
 @Injectable({
   providedIn: 'root',

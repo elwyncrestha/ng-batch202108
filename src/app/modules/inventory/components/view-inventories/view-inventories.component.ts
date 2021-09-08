@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { Inventory } from '../../models/inventory.model';
 import { InventoryService } from '../../services/inventory.service';
+import { Inventory } from '../../store/inventory.reducer';
 
 @Component({
   selector: 'app-view-inventories',
