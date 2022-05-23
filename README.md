@@ -4,4 +4,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Backend
 
-* [Inventory Service](https://bitbucket.org/elwyncrestha/inventory-service)
+* [Inventory Service](https://github.com/elwyncrestha/inventory-service)
